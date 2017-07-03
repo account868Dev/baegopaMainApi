@@ -15,8 +15,8 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "restaurant_reviews")
-public class RestaurantReview {
+@Table(name = "reviews")
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +41,9 @@ public class RestaurantReview {
     @Column(name = "updated_at")
     private DateTime updatedAt;
 
-    public RestaurantReview() {}
+    public Review() {}
 
-    public RestaurantReview(Long restaurantId, Long userId, Integer grade, String contents) {
+    public Review(Long restaurantId, Long userId, Integer grade, String contents) {
         this.restaurantId = restaurantId;
         this.userId = userId;
         this.grade = grade;

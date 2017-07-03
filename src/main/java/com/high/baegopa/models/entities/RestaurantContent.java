@@ -23,6 +23,9 @@ public class RestaurantContent {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "restaurant_id")
+    private Long restaurantId;
+
     @Column
     private Integer order;
     @Column
