@@ -6,9 +6,7 @@ import lombok.Data;
  * Created by high on 2017. 7. 2..
  */
 @Data
-public class CommonResponse {
-
-    private CommonResponse commonResponse;
+public class CommonResponse<T> {
 
     public static CommonResponse getInstance(){
         return new CommonResponse();
@@ -16,21 +14,22 @@ public class CommonResponse {
 
     private String result;
     private String reason;
+    private T data;
 
     public CommonResponse fail(String msg){
         this.result = "fail";
         this.reason = msg;
-        return this.commonResponse;
+        return this;
     }
 
     public CommonResponse success(){
         this.result = "success";
-        return this.commonResponse;
+        return this;
     }
 
-    public CommonResponse success(String msg){
+    public CommonResponse success(T data){
         this.result = "success";
-        this.reason = msg;
-        return this.commonResponse;
+        this.data = data;
+        return this;
     }
 }

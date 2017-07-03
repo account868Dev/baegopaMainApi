@@ -41,14 +41,16 @@ public class JpaMasterConfig {
     @Primary
     @Bean(name = "masterEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean masterEntityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(masterDataSource());
-        em.setPackagesToScan(new String[] { "com.high.baegopa.models.entities" });
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
         HashMap<String, Object> properties = new HashMap<String, Object>();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.ejb.interceptor", masterHibernateSyncInterceptor());
+
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(masterDataSource());
+        em.setPackagesToScan(new String[] { "com.high.baegopa.models.entities" });
+        em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaPropertyMap(properties);
         em.setPersistenceUnitName("masterEntityManager");
         return em;

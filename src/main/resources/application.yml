@@ -3,16 +3,16 @@ spring:
 
   jpa:
     hibernate:
-    ddl-auto: create-update
+     ddl-auto: create-update
     generate-ddl: false
     show-sql: true
 
 datasource:
     masterDB:
        driver-class-name: "com.mysql.jdbc.Driver"
-       url: "jdbc:mysql://52.78.110.20:3306/gamseong?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8"
-       username: 'root'
-       password: gamseong1234
+       url: "jdbc:mysql://webdevdbinstance.c09mbepfgdal.ap-northeast-2.rds.amazonaws.com/baegopa_main?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8"
+       username: 'webdevroot'
+       password: 'q1w2e3r4t5'
        initial-size: 10
        max-active: 50
        max-idle: 50
@@ -25,9 +25,9 @@ datasource:
 
     slaveDB:
        driver-class-name: "com.mysql.jdbc.Driver"
-       url: "jdbc:mysql://52.78.110.20:3306/gamseong?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8"
-       username: 'root'
-       password: gamseong1234
+       url: "jdbc:mysql://webdevdbinstance.c09mbepfgdal.ap-northeast-2.rds.amazonaws.com/baegopa_main?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8"
+       username: 'webdevroot'
+       password: 'q1w2e3r4t5'
        initial-size: 10
        max-active: 50
        max-idle: 50
