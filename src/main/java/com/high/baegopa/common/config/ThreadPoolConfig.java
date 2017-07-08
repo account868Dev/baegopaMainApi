@@ -23,6 +23,5 @@ public class ThreadPoolConfig extends WebMvcConfigurerAdapter {
         taskExecutor.setQueueCapacity(50);
         taskExecutor.initialize();
         configurer.setTaskExecutor(taskExecutor);
-
     }
 }
