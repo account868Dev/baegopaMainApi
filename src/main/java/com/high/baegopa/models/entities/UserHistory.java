@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "user_historys")
+@Table(name = "user_histories")
 public class UserHistory {
 
     @Id
@@ -23,6 +23,8 @@ public class UserHistory {
     @Column(name = "id")
     private Long id;
 
+    @Column
+    private Integer rank;
     @Column(name = "restaurant_id")
     private Long restaurantId;
     @Column(name = "user_id")
@@ -32,9 +34,6 @@ public class UserHistory {
 
     @Column(name = "created_at")
     private DateTime createdAt;
-
-    @Column
-    private Integer rank;
 
     public UserHistory(){}
 

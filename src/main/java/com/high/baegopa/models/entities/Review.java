@@ -1,7 +1,6 @@
 package com.high.baegopa.models.entities;
 
 import lombok.Data;
-import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * Created by high on 2017. 7. 3..
@@ -37,9 +38,9 @@ public class Review {
     private String useYn;
 
     @Column(name = "created_at")
-    private DateTime createdAt;
+    private Timestamp createdAt;
     @Column(name = "updated_at")
-    private DateTime updatedAt;
+    private Timestamp updatedAt;
 
     public Review() {}
 
@@ -49,7 +50,7 @@ public class Review {
         this.grade = grade;
         this.contents = contents;
         this.useYn = "Y";
-        this.createdAt = DateTime.now();
+        this.createdAt = Timestamp.valueOf(LocalDateTime.now());
     }
 
 }

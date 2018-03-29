@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 /**
  * Created by high on 2017. 7. 3..
@@ -30,14 +31,17 @@ public class RestaurantContent {
     private Integer order;
     @Column
     private String type;
+    @Column
+    private String useYn;
 
-    @Column(name = "image_name")
-    private String imageName;
     @Column(name = "image_url")
     private String imageUrl;
     @Column
-    private String text;
+    private String contents;
 
     @Column(name = "created_at")
-    private DateTime createdAt;
+    private Timestamp createdAt;
+
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
 }

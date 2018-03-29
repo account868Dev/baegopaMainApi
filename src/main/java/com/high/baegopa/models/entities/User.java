@@ -1,7 +1,6 @@
 package com.high.baegopa.models.entities;
 
 import lombok.Data;
-import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalTime;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * Created by high on 2017. 7. 2..
@@ -37,11 +37,11 @@ public class User {
     private String recomendedUseYn;
 
     @Column(name = "recomended_time")
-    private LocalTime recomendedTime;
+    private Integer recomendedTime;
     @Column(name = "created_at")
-    private DateTime createdAt;
+    private Timestamp createdAt;
     @Column(name = "updated_at")
-    private DateTime updatedAt;
+    private Timestamp updatedAt;
 
     public User(){}
 
@@ -51,8 +51,7 @@ public class User {
         this.useYn = "Y";
         this.snsUse = "N";
         this.recomendedUseYn = "Y";
-        this.recomendedTime = LocalTime.of(12,0);
-        this.createdAt = DateTime.now();
+        this.createdAt = Timestamp.valueOf(LocalDateTime.now());
     }
 
     public User(String email, String name, String snsUse){
@@ -61,7 +60,6 @@ public class User {
         this.useYn = "Y";
         this.snsUse = snsUse;
         this.recomendedUseYn = "Y";
-        this.recomendedTime = LocalTime.of(12,0);
-        this.createdAt = DateTime.now();
+        this.createdAt = Timestamp.valueOf(LocalDateTime.now());
     }
 }
